@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 1000vh;
+    background: #111;
+    overflow-X: hidden;
+
+}
+
+.scene {
+    position: fixed;
+    top: 50%;
+    transform-style: preserve-3d;
+    transform: perspective(1500px) rotateY(0);
+    transition: .5s linear;
+
+}
+
+.floor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2000px;
+    height: 2000px;
+    background-image: url("img/grass.jpg");
+    background-size: cover;
+    transform: translate3d(-1000px, -700px, 0) rotateX(90deg);
+}
+
+.wall {
+    position: absolute;
+    top: 500px;
+    left: 0;
+    width: 2000px;
+    height: 1500px;
+    background-image: url("img/trees.jpg");
+    background-size: cover;
+    backface-visibility: hidden;
+    box-shadow: inset 0 0 500px rgba(0, 0, 0, 0.1);
+}
+
+.wall.wall1 {
+    transform: translate3d(-1000px, -1700px, -1000px);
+}
+
+.wall.wall2 {
+    transform: translate3d(0px, -1700px, 0px) rotateY(270deg);
+}
+
+.wall.wall3 {
+    transform: translate3d(-1000px, -1700px, 1000px) rotateY(180deg);
+}
+
+.wall.wall4 {
+    transform: translate3d(-2000px, -1700px, 0px) rotateY(90deg);
+}
+
+.container {
+    transform-style: preserve-3d;
+    transform: rotateY(45deg);
+    /* scale: 0.5; */
+}
+
+.container .box {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(90deg);
+}
+
+.cube {
+    position: absolute;
+    transform-style: preserve-3d;
+    width: 500px;
+    height: 100px;
+    transform: translate3d(-250px, -50px, 0) rotate(calc(60deg*var(--i)));
+}
+
+.cube .side {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    transform-style: preserve-3d;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.1);
+}
+
+.side img {
+    display: block;
+    position: absolute;
+    object-fit: cover;
+    top: 40px;
+    left: -40px;
+    width: 100%;
+    height: 200px;
+    width: 280px;
+    transform: rotateZ(-90deg);
+    border: 3px solid white;
+}
+
+.side img:hover {
+    cursor: pointer;
+}
+
+.side:nth-child(2) img {
+    transform: rotateZ(90deg);
+
+}
+
+
+.cube .side:nth-child(1) {
+    height: 280px;
+    width: 200px;
+    top: 50%;
+    transform: rotateY(90deg) translate3d(0%, -50%, 400px);
+    background: #fefefe;
+    background: #000;
+
+}
+
+.cube .side:nth-child(2) {
+    height: 280px;
+    width: 200px;
+    top: 50%;
+    transform: rotateY(270deg) translate3d(0, -50%, 100px);
+    background: #fefefe;
+    background: red;
+}
